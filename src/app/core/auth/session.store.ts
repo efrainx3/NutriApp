@@ -68,13 +68,13 @@ export const SessionStore = signalStore(
           }
           const destino =
             payload.rol === 'profesional' ? '/profesional' : '/paciente/hoy';
-          void router.navigateByUrl(destino);
+          void router.navigateByUrl(destino).catch(() => false);
         })
       ),
       limpiarAlCerrarSesion$: events.on(SessionEvents.sesionCerrada).pipe(
         tap(() => {
           void offlineQueue.limpiarCola();
-          void router.navigateByUrl('/login');
+          void router.navigateByUrl('/login').catch(() => false);
         })
       ),
     })

@@ -1,0 +1,149 @@
+/**
+ * Sistema de Design Tokens — NutriRuta
+ * Organización en tres niveles: Primitivos, Semánticos y de Componente.
+ * Los componentes consumen exclusivamente tokens semánticos o de componente.
+ */
+
+:root {
+  /* ========================================================================
+   * 1. TOKENS PRIMITIVOS (Valores base de paleta, escala y geometría)
+   * ======================================================================== */
+  --nr-primitive-teal-700: #0F6E5C;
+  --nr-primitive-teal-800: #0A5244;
+  --nr-primitive-teal-50: #E6F4F1;
+
+  --nr-primitive-slate-900: #1F2933;
+  --nr-primitive-slate-700: #52606D;
+  --nr-primitive-slate-400: #7B8794;
+  --nr-primitive-slate-200: #D9E2EC;
+  --nr-primitive-slate-50: #F4F7F6;
+  --nr-primitive-white: #FFFFFF;
+
+  --nr-primitive-blue-steel-600: #3E5C76;
+  --nr-primitive-blue-steel-50: #EDF2F7;
+
+  --nr-primitive-green-700: #1E7B4A;
+  --nr-primitive-green-50: #E8F5EE;
+
+  --nr-primitive-amber-700: #B54708;
+  --nr-primitive-amber-50: #FEF3C7;
+
+  --nr-primitive-red-700: #B42318;
+  --nr-primitive-red-50: #FEE4E2;
+
+  /* Espaciado: múltiplos de 4 px */
+  --nr-space-1: 4px;
+  --nr-space-2: 8px;
+  --nr-space-4: 16px;
+  --nr-space-6: 24px;
+  --nr-space-8: 32px;
+  --nr-space-12: 48px;
+
+  /* Radios */
+  --nr-radius-card: 8px;
+  --nr-radius-button: 12px;
+  --nr-radius-pill: 9999px;
+
+  /* Tipografía: base 16 px, escala 1,25 (14, 16, 20, 25, 31 px) */
+  --nr-font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --nr-font-size-sm: 14px;
+  --nr-font-size-base: 16px;
+  --nr-font-size-lg: 20px;
+  --nr-font-size-xl: 25px;
+  --nr-font-size-2xl: 31px;
+
+  --nr-line-height-base: 1.5;
+  --nr-line-height-heading: 1.25;
+
+  /* ========================================================================
+   * 2. TOKENS SEMÁNTICOS (Obligatorios para consumo en componentes)
+   * ======================================================================== */
+  --nr-color-action-primary: var(--nr-primitive-teal-700);
+  --nr-color-action-primary-hover: var(--nr-primitive-teal-800);
+  --nr-color-action-primary-subtle: var(--nr-primitive-teal-50);
+
+  --nr-text-primary: var(--nr-primitive-slate-900);
+  --nr-text-secondary: var(--nr-primitive-slate-700);
+  --nr-text-inverse: var(--nr-primitive-white);
+
+  /* Peso y medidas: color neutro sin juicio */
+  --nr-color-data-neutral: var(--nr-primitive-blue-steel-600);
+  --nr-color-data-neutral-bg: var(--nr-primitive-blue-steel-50);
+
+  --nr-color-adherence-good: var(--nr-primitive-green-700);
+  --nr-color-adherence-good-bg: var(--nr-primitive-green-50);
+
+  --nr-color-adherence-partial: var(--nr-primitive-amber-700);
+  --nr-color-adherence-partial-bg: var(--nr-primitive-amber-50);
+
+  --nr-color-feedback-error: var(--nr-primitive-red-700);
+  --nr-color-feedback-error-bg: var(--nr-primitive-red-50);
+
+  --nr-surface-background: var(--nr-primitive-slate-50);
+  --nr-surface-card: var(--nr-primitive-white);
+  --nr-surface-subtle: var(--nr-primitive-slate-200);
+
+  /* Solo bordes, nunca texto */
+  --nr-border: var(--nr-primitive-slate-400);
+  --nr-border-subtle: var(--nr-primitive-slate-200);
+
+  --nr-focus-ring: 2px solid var(--nr-color-action-primary);
+  --nr-focus-offset: 2px;
+
+  /* ========================================================================
+   * 3. TOKENS DE COMPONENTE
+   * ======================================================================== */
+  --nr-card-padding: var(--nr-space-4);
+  --nr-card-radius: var(--nr-radius-card);
+  --nr-card-bg: var(--nr-surface-card);
+  --nr-card-border: 1px solid var(--nr-border-subtle);
+
+  --nr-button-radius: var(--nr-radius-button);
+  --nr-button-min-target: 44px;
+  --nr-button-cta-height: 56px;
+}
+
+/* ==========================================================================
+ * ESTILOS BASE Y ACCESIBILIDAD (WCAG 2.2 AA)
+ * ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--nr-font-sans);
+  font-size: var(--nr-font-size-base);
+  line-height: var(--nr-line-height-base);
+  color: var(--nr-text-primary);
+  background-color: var(--nr-surface-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Foco visible de 2 px obligatorio para navegación por teclado (WCAG 2.2 AA) */
+:focus-visible {
+  outline: var(--nr-focus-ring);
+  outline-offset: var(--nr-focus-offset);
+}
+
+/* Cifras con ancho tabular para alineación de datos clínicos */
+.nr-tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Utilidad para lectores de pantalla (sr-only) */
+.nr-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

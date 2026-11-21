@@ -147,10 +147,14 @@ export const RegistrosStore = signalStore(
           (r.fecha === payload.fecha && r.tipoComida === payload.tipoComida)
       );
 
-      const registrosHoy = existeEnHoy
+      const itemSincronizado: RegistroComida = {
+        ...payload,
+        estadoSincronizacion: 'sincronizado',
+      };
+      const registrosHoy: readonly RegistroComida[] = existeEnHoy
         ? state.registrosHoy.map(actualizarItem)
         : payload.fecha === state.fechaHoy
-          ? [...state.registrosHoy, { ...payload, estadoSincronizacion: 'sincronizado' }]
+          ? [...state.registrosHoy, itemSincronizado]
           : state.registrosHoy;
 
       const registrosSemana = state.registrosSemana.map(actualizarItem);

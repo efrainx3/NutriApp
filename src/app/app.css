@@ -1,0 +1,116 @@
+.topbar {
+  background-color: var(--nr-surface-card);
+  border-bottom: 1px solid var(--nr-border-subtle);
+  padding: var(--nr-space-2) var(--nr-space-4);
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+
+.topbar__contenedor {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--nr-space-2);
+}
+
+.topbar__marca {
+  display: flex;
+  align-items: center;
+  gap: var(--nr-space-2);
+  flex-wrap: wrap;
+}
+
+.topbar__logo {
+  font-size: var(--nr-font-size-lg);
+  color: var(--nr-color-action-primary);
+  font-weight: 800;
+}
+
+.topbar__rol {
+  font-size: var(--nr-font-size-sm);
+  color: var(--nr-text-secondary);
+  font-weight: 600;
+  padding: 2px var(--nr-space-2);
+  border-radius: var(--nr-radius-card);
+  background-color: var(--nr-surface-background);
+}
+
+.topbar__controles {
+  display: flex;
+  align-items: center;
+  gap: var(--nr-space-2);
+  flex-wrap: wrap;
+}
+
+.topbar__toggle,
+.topbar__logout {
+  min-height: var(--nr-button-min-target);
+  padding: var(--nr-space-1) var(--nr-space-4);
+  border-radius: var(--nr-radius-button);
+  border: 1px solid var(--nr-border);
+  background-color: var(--nr-surface-background);
+  color: var(--nr-text-primary);
+  font-size: var(--nr-font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.topbar__toggle--activo-alerta {
+  background-color: var(--nr-color-adherence-partial-bg);
+  color: var(--nr-color-adherence-partial);
+  border-color: var(--nr-color-adherence-partial);
+}
+
+.topbar__toggle--activo-error {
+  background-color: var(--nr-color-feedback-error-bg);
+  color: var(--nr-color-feedback-error);
+  border-color: var(--nr-color-feedback-error);
+}
+
+.topbar__aviso-cola {
+  max-width: 1440px;
+  margin: var(--nr-space-2) auto 0;
+  padding: var(--nr-space-2) var(--nr-space-4);
+  border-radius: var(--nr-radius-card);
+  background-color: var(--nr-color-feedback-error-bg);
+  color: var(--nr-color-feedback-error);
+  border: 1px solid var(--nr-color-feedback-error);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--nr-space-2);
+  font-size: var(--nr-font-size-sm);
+  font-weight: 600;
+}
+
+.topbar__aviso-acciones {
+  display: flex;
+  gap: var(--nr-space-2);
+}
+
+.topbar__btn-confirmar,
+.topbar__btn-cancelar {
+  min-height: var(--nr-button-min-target);
+  padding: var(--nr-space-1) var(--nr-space-4);
+  border-radius: var(--nr-radius-button);
+  font-size: var(--nr-font-size-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.topbar__btn-confirmar {
+  background-color: var(--nr-color-feedback-error);
+  color: var(--nr-text-inverse);
+  border: none;
+}
+
+.topbar__btn-cancelar {
+  background-color: var(--nr-surface-card);
+  color: var(--nr-text-primary);
+  border: 1px solid var(--nr-border);
+}

@@ -1,6 +1,11 @@
 import { type } from '@ngrx/signals';
 import { eventGroup } from '@ngrx/signals/events';
-import { EvolucionPacienteData, MedicionSemanal } from '../../core/api/seed-data';
+import {
+  EvolucionPacienteData,
+  MedicionSemanal,
+  PlantillaPlan,
+  ValoracionClinica,
+} from '../../core/api/seed-data';
 import { NivelCumplimiento } from '../../shared/util/calculos';
 
 /**
@@ -23,6 +28,11 @@ export const EvolucionApiEvents = eventGroup({
       pacienteId: string;
       tallaCm: number;
       medicion: MedicionSemanal;
+      valoracion: ValoracionClinica;
+    }>(),
+    planPacienteActualizado: type<{
+      pacienteId: string;
+      plantilla: PlantillaPlan;
     }>(),
   },
 });

@@ -1,0 +1,11 @@
+[build]
+  # Install dependencies if they are missing (e.g. fresh environments), then build.
+  command = "([ -x node_modules/.bin/ng ] || npm ci) && npm run build"
+  # Angular's application builder writes browser files to dist/<project>/browser
+  publish = "dist/nutriruta/browser"
+
+# Single-page app fallback so client-side routes resolve to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
